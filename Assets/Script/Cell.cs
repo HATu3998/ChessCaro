@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ public class Cell : MonoBehaviour
     private bool isChosen = false;
     public int row, col;
     private GameOver gameOver;
+     
+  
+
     private void Awake()
     {
       
@@ -26,6 +30,7 @@ public class Cell : MonoBehaviour
         gameOver = FindFirstObjectByType<GameOver>();
 
     }
+    
     private void OnClick()
     {
         Debug.Log($"Click: {gameObject.name} | ID: {GetInstanceID()} | isChosen: {isChosen}");
@@ -42,11 +47,14 @@ public class Cell : MonoBehaviour
 
             Debug.Log("x");
             board.currentTurn = "o";
+            board.playerText.text = "O";
+          
         }
         else
         {
             Debug.Log("o");
             board.currentTurn = "x";
+            board.playerText.text = "X";
 
         }
         if (board.Checkwin(row, col))
@@ -57,9 +65,11 @@ public class Cell : MonoBehaviour
            if(board.currentTurn == "o")
             {
                 gameOver.setName("x");
+                
             }
             else
             {
+               
                 gameOver.setName("o");
             }
         }

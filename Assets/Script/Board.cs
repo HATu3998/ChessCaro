@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class Board : MonoBehaviour
     public int boardSize;
     public string currentTurn = "o";
     private string[,] matrix;
+    public TextMeshProUGUI playerText;
+ 
     void Start()
     {
         matrix = new string[boardSize + 1, boardSize + 1];
